@@ -1,0 +1,430 @@
+OM<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoHabit Tracker - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #4caf50;
+            --accent-color: #81c784;
+            --background-color: #f1f8e9;
+            --text-color: #1b5e20;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #c8e6c9);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background elements */
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 10s infinite linear;
+        }
+
+        .leaf1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234caf50'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E");
+            top: 20%;
+            left: 10%;
+        }
+
+        .leaf2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232e7d32'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E");
+            top: 70%;
+            left: 80%;
+            transform: rotate(45deg);
+        }
+
+        .leaf3 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2381c784'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E");
+            top: 30%;
+            right: 15%;
+            transform: rotate(120deg);
+        }
+
+        .leaf4 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233e8e41'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E");
+            top: 80%;
+            left: 20%;
+            transform: rotate(200deg);
+        }
+
+        .leaf5 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2366bb6a'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E");
+            bottom: 20%;
+            right: 10%;
+            transform: rotate(70deg);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+            animation: gradientShift 3s infinite linear;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: -8px;
+            left: 20%;
+            animation: lineWidth 2s infinite alternate;
+        }
+
+        @keyframes lineWidth {
+            from { width: 20%; left: 40%; }
+            to { width: 80%; left: 10%; }
+        }
+
+        .logo {
+            display: block;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); box-shadow: 0 0 0 rgba(76, 175, 80, 0.4); }
+            to { transform: scale(1.05); box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: var(--accent-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .extra-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .extra-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .extra-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95em;
+        }
+
+        .signup-link a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+    <div class="leaf leaf4"></div>
+    <div class="leaf leaf5"></div>
+
+    <div class="login-container">
+        <div class="logo">🌿</div>
+        <h1>EcoHabit Login</h1>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <span class="input-icon">✉</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="input-icon">🔒</span>
+            </div>
+            
+            <button type="submit" id="loginButton">Log In</button>
+            
+            <div class="extra-links">
+                <a href="#">Forgot Password?</a>
+                <label><input type="checkbox" id="remember"> Remember me</label>
+            </div>
+            
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Generate more random leaves
+        function createRandomLeaves() {
+            const body = document.body;
+            const leafColors = ['#2e7d32', '#4caf50', '#81c784', '#66bb6a', '#3e8e41'];
+            
+            for (let i = 0; i < 12; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                
+                // Random positioning and sizing
+                const size = Math.random() * 30 + 20;
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                leaf.style.left = `${Math.random() * 100}%`;
+                leaf.style.bottom = `-${size}px`;
+                
+                // Set the SVG with random color
+                const color = leafColors[Math.floor(Math.random() * leafColors.length)];
+                const colorEncoded = encodeURIComponent(color);
+                leaf.style.backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='${colorEncoded}'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.33,3.75L5.24,15.7A3.79,3.79,0,0,1,4.5,14C4.5,12.94,6,11,11,10Z'/%3E%3C/svg%3E")`;
+                
+                // Random rotation
+                leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                // Animation properties
+                leaf.style.animation = `float ${Math.random() * 10 + 15}s infinite linear`;
+                leaf.style.animationDelay = `${Math.random() * 10}s`;
+                
+                body.appendChild(leaf);
+            }
+        }
+        
+        // Form submit logic
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simulate login animation
+            const button = document.getElementById('loginButton');
+            button.innerHTML = 'Logging in...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Redirect to dashboard page
+                window.location.href = "dashboard.html";
+            }, 1500);
+        });
+        
+        // Create the leaves on page load
+        window.addEventListener('load', createRandomLeaves);
+        
+</script>
+    </script>
+    <script>
+        const form = document.getElementById('login-form');
+      
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+      
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+      
+          try {
+            const res = await fetch('http://localhost:5000/api/auth/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ email, password })
+            });
+      
+            const data = await res.json();
+      
+            if (res.ok) {
+              // ✅ Success
+              localStorage.setItem('token', data.token);
+              document.getElementById('message').textContent = 'Login successful!';
+              // Optionally redirect to dashboard
+              // window.location.href = 'dashboard.html';
+            } else {
+              // ❌ Error from backend
+              document.getElementById('message').textContent = data.message || 'Login failed';
+            }
+          } catch (err) {
+            document.getElementById('message').textContent = 'Network error';
+          }
+        });
+      </script>
+    
+</body>
+</html>
